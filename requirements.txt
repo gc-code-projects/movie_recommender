@@ -1,5 +1,4 @@
-folium
-streamlit_folium
 numpy
 pandas
 streamlit
+time
