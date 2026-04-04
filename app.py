@@ -310,83 +310,83 @@ elif tab == '后台分析':
     if selected_section == sections[1]:
         st.title("匹配兴趣")
         st.session_state.current_section = sections[1]
-        try:
-            watch_data = json.loads(data)
+        # try:
+        watch_data = json.loads(data)
 
-            # with st.spinner("⏳ 开始分析... 请稍候..."):
-            #     time.sleep(1)  # simulate long computation
-            #
-            # with st.spinner("⏳正在匹配100,575名用户数据..."):
-            #     time.sleep(1)
+        # with st.spinner("⏳ 开始分析... 请稍候..."):
+        #     time.sleep(1)  # simulate long computation
+        #
+        # with st.spinner("⏳正在匹配100,575名用户数据..."):
+        #     time.sleep(1)
 
-            watched_movies = []
-            my_ratings = []
-            to_order = []
-            for k, v in watch_data.items():
-                idx = movies[movies['chinese_title'] == k]['movieId'].values[0]
-                to_order.append((idx, k, v))
-            to_order.sort()
+        watched_movies = []
+        my_ratings = []
+        to_order = []
+        for k, v in watch_data.items():
+            idx = movies[movies['chinese_title'] == k]['movieId'].values[0]
+            to_order.append((idx, k, v))
+        to_order.sort()
+        
+        for idx, k, v in to_order:
+            watched_movies.append(k)
+            my_ratings.append(v)
+
+        rated_idx = movies[movies['chinese_title'].isin(watched_movies)]['movieId'].tolist()
+        target = np.zeros(ratings_table.shape[1])
+        target[rated_idx] = my_ratings
+
+        sim_scores = cosine_with_all(target, ratings_table_filled.values)
+        user_id = sim_scores.argmax()
+        top_k = 3
+        user_ids = np.argpartition(sim_scores, -top_k)[-top_k:]
+
+        # st.write(user_id, user_ids, rated_idx)
+        # st.write(sim_scores)
+        my_ratings = np.array(my_ratings)
+        compare_table = pd.DataFrame([watched_movies,
+                                      (my_ratings - my_ratings.min()) / (my_ratings.max() - my_ratings.min()) * 5,
+                                      *[ratings_table.loc[user_id].values[rated_idx] for user_id in user_ids]]).T
+        compare_table.columns = ['电影', '我的兴趣'] + [f'相似用户{i+1}' for i in range(top_k)]
+        
+        st.dataframe(compare_table)
+        st.subheader("我的兴趣和最接近的用户的匹配度")
+
+        for i in range(top_k):
+            fig = px.scatter(
+                compare_table,
+                x="我的兴趣", y=f"相似用户{i+1}",
+                trendline="ols",
+                hover_data='电影',
+                range_x=[-1, 6],
+                range_y=[0, 6]
+            )
             
-            for idx, k, v in to_order:
-                watched_movies.append(k)
-                my_ratings.append(v)
+            fig.update_layout(
+                xaxis_title="我的兴趣",
+                yaxis_title=f"相似用户{i+1}(ID{user_ids[i]}))",
+            )
 
-            rated_idx = movies[movies['chinese_title'].isin(watched_movies)]['movieId'].tolist()
-            target = np.zeros(ratings_table.shape[1])
-            target[rated_idx] = my_ratings
-
-            sim_scores = cosine_with_all(target, ratings_table_filled.values)
-            user_id = sim_scores.argmax()
-            top_k = 3
-            user_ids = np.argpartition(sim_scores, -top_k)[-top_k:]
-
-            # st.write(user_id, user_ids, rated_idx)
-            # st.write(sim_scores)
-            my_ratings = np.array(my_ratings)
-            compare_table = pd.DataFrame([watched_movies,
-                                          (my_ratings - my_ratings.min()) / (my_ratings.max() - my_ratings.min()) * 5,
-                                          *[ratings_table.loc[user_id].values[rated_idx] for user_id in user_ids]]).T
-            compare_table.columns = ['电影', '我的兴趣'] + [f'相似用户{i+1}' for i in range(top_k)]
+            st.plotly_chart(fig, use_container_width=True)
             
-            st.dataframe(compare_table)
-            st.subheader("我的兴趣和最接近的用户的匹配度")
 
-            for i in range(top_k):
-                fig = px.scatter(
-                    compare_table,
-                    x="我的兴趣", y=f"相似用户{i+1}",
-                    trendline="ols",
-                    hover_data='电影',
-                    range_x=[-1, 6],
-                    range_y=[0, 6]
-                )
-                
-                fig.update_layout(
-                    xaxis_title="我的兴趣",
-                    yaxis_title=f"相似用户{i+1}(ID{user_ids[i]}))",
-                )
+        # with st.spinner("⏳生成电影匹配度列表..."):
+        #     time.sleep(3)
 
-                st.plotly_chart(fig, use_container_width=True)
-                
+        st.subheader(f"以下是相似用户观看过的视频评分：")
 
-            # with st.spinner("⏳生成电影匹配度列表..."):
-            #     time.sleep(3)
+        final_result = movies[['movieId', 'chinese_title']]
+        for i, user_id in enumerate(user_ids):
+            closest_rater = ratings[ratings['userId'] == user_id]
+            final_result = final_result.merge(closest_rater, on='movieId', how='outer')
+        final_result = final_result[['movieId', 'chinese_title', 'rating_x', 'rating_y', 'rating']]
+        final_result.columns = ['电影ID', '视频名']+[f"用户{user_ids[i]}" for i in range(top_k)]
 
-            st.subheader(f"以下是相似用户观看过的视频评分：")
+        st.dataframe(final_result)
 
-            final_result = movies[['movieId', 'chinese_title']]
-            for i, user_id in enumerate(user_ids):
-                closest_rater = ratings[ratings['userId'] == user_id]
-                final_result = final_result.merge(closest_rater, on='movieId', how='outer')
-            final_result = final_result[['movieId', 'chinese_title', 'rating_x', 'rating_y', 'rating']]
-            final_result.columns = ['电影ID', '视频名']+[f"用户{user_ids[i]}" for i in range(top_k)]
-
-            st.dataframe(final_result)
-
-            st.session_state.analysis_results.extend([compare_table, final_result])
-            st.success("✅ 分析完成!")
-        except:
-            st.info("请先浏览用户界面的视频信息！")
+        st.session_state.analysis_results.extend([compare_table, final_result])
+        st.success("✅ 分析完成!")
+        # except:
+        #     st.info("请先浏览用户界面的视频信息！")
     if selected_section == sections[2]:
         st.title("推荐报告")
         st.session_state.current_section = sections[2]
