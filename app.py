@@ -316,13 +316,13 @@ elif tab == '后台分析':
             user_ids = np.argpartition(sim_scores, -top_k)[-top_k:]
 
             # st.write(user_id, user_ids, rated_idx)
-
+            st.write(sim_scores)
             my_ratings = np.array(my_ratings)
             compare_table = pd.DataFrame([watched_movies,
                                           (my_ratings - my_ratings.min()) / (my_ratings.max() - my_ratings.min()) * 5,
                                           *[ratings_table.loc[user_id].values[rated_idx] for user_id in user_ids]]).T
             compare_table.columns = ['电影', '我的兴趣'] + [f'相似用户{i+1}' for i in range(top_k)]
-            st.write(sim_scores)
+            
             st.dataframe(compare_table)
             st.subheader("我的兴趣和最接近的用户的匹配度")
 
