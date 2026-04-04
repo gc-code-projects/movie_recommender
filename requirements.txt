@@ -4,4 +4,5 @@ streamlit==1.32.0
 plotly==5.22.0
 streamlit_javascript
 openai==2.29.0
+statsmodels==0.14.2
 
