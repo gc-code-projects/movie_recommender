@@ -351,24 +351,24 @@ elif tab == '后台分析':
             # st.dataframe(compare_table)
             st.subheader("我的兴趣和最接近的用户的匹配度")
 
-            for i in range(top_k):
-                st.write(i)
-                fig = px.scatter(
-                    compare_table,
-                    x="我的兴趣", y=f"相似用户{i+1}",
-                    trendline="ols",
-                    hover_data='电影',
-                    range_x=[-1, 6],
-                    range_y=[0, 6]
-                )
+            # for i in range(top_k):
+            #     st.write(i)
+            #     fig = px.scatter(
+            #         compare_table,
+            #         x="我的兴趣", y=f"相似用户{i+1}",
+            #         trendline="ols",
+            #         hover_data='电影',
+            #         range_x=[-1, 6],
+            #         range_y=[0, 6]
+            #     )
                 
-                st.write(i)
-                fig.update_layout(
-                    xaxis_title="我的兴趣",
-                    yaxis_title=f"相似用户{i+1}(ID{user_ids[i]}))",
-                )
-                st.write(i)
-                st.plotly_chart(fig, use_container_width=True)
+            #     st.write(i)
+            #     fig.update_layout(
+            #         xaxis_title="我的兴趣",
+            #         yaxis_title=f"相似用户{i+1}(ID{user_ids[i]}))",
+            #     )
+            #     st.write(i)
+            #     st.plotly_chart(fig, use_container_width=True)
                 
 
             # with st.spinner("⏳生成电影匹配度列表..."):
