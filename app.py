@@ -334,13 +334,13 @@ elif tab == '后台分析':
             rated_idx = movies[movies['chinese_title'].isin(watched_movies)]['movieId'].tolist()
             target = np.zeros(ratings_table.shape[1])
             target[rated_idx] = my_ratings
-
+            st.write(to_order)
             sim_scores = cosine_with_all(target, ratings_table_filled.values)
             user_id = sim_scores.argmax()
             top_k = 3
             user_ids = np.argpartition(sim_scores, -top_k)[-top_k:]
 
-            # st.write(user_id, user_ids, rated_idx)
+            st.write(user_id, user_ids, rated_idx)
 
             my_ratings = np.array(my_ratings)
             compare_table = pd.DataFrame([watched_movies,
