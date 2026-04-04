@@ -286,6 +286,7 @@ elif tab == '后台分析':
         st.session_state.current_section = sections[1]
         try:
             watch_data = json.loads(data)
+            st.write(watch_data)
             # with st.spinner("⏳ 开始分析... 请稍候..."):
             #     time.sleep(1)  # simulate long computation
             #
