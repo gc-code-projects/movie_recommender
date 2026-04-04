@@ -1,48 +1,48 @@
-movieId,title,genres,chinese_title
-0,Toy Story (1995),Adventure|Animation|Children|Comedy|Fantasy,《玩具总动员》
-1,Braveheart (1995),Action|Drama|War,《勇敢的心》
-2,Apollo 13 (1995),Adventure|Drama|IMAX,《阿波罗13号》
-3,Die Hard: With a Vengeance (1995),Action|Crime|Thriller,《虎胆龙威3》
-4,Pulp Fiction (1994),Comedy|Crime|Drama|Thriller,《低俗小说》
-5,Forrest Gump (1994),Comedy|Drama|Romance|War,《阿甘正传》
-6,Jurassic Park (1993),Action|Adventure|Sci-Fi|Thriller,《侏罗纪公园》
-7,Schindler's List (1993),Drama|War,《辛德勒的名单》
-8,Blade Runner (1982),Action|Sci-Fi|Thriller,《银翼杀手》
-9,Aladdin (1992),Adventure|Animation|Children|Comedy|Musical,《阿拉丁》
-10,Terminator 2: Judgment Day (1991),Action|Sci-Fi,《终结者2：审判日》
-11,Dances with Wolves (1990),Adventure|Drama|Western,《与狼共舞》
-12,Beauty and the Beast (1991),Animation|Children|Fantasy|Musical|Romance|IMAX,《美女与野兽》
-13,Fargo (1996),Comedy|Crime|Drama|Thriller,《冰血暴》
-14,Die Hard (1988),Action|Crime|Thriller,《虎胆龙威》
-15,Reservoir Dogs (1992),Crime|Mystery|Thriller,《落水狗》
-16,E.T. the Extra-Terrestrial (1982),Children|Drama|Sci-Fi,《E.T.外星人》
-17,Monty Python and the Holy Grail (1975),Adventure|Comedy|Fantasy,《巨蟒与圣杯》
-18,One Flew Over the Cuckoo's Nest (1975),Drama,《飞越疯人院》
-19,Star Wars: Episode V - The Empire Strikes Back (1980),Action|Adventure|Sci-Fi,《星球大战5：帝国反击战》
-20,Aliens (1986),Action|Adventure|Horror|Sci-Fi,《异形2》
-21,Star Wars: Episode VI - Return of the Jedi (1983),Action|Adventure|Sci-Fi,《星球大战6：绝地归来》
-22,Goodfellas (1990),Crime|Drama,《好家伙》
-23,Alien (1979),Horror|Sci-Fi,《异形》
-24,Groundhog Day (1993),Comedy|Fantasy|Romance,《土拨鼠之日》
-25,Back to the Future (1985),Adventure|Comedy|Sci-Fi,《回到未来》
-26,Indiana Jones and the Last Crusade (1989),Action|Adventure,《夺宝奇兵3：圣战奇兵》
-27,Good Will Hunting (1997),Drama|Romance,《心灵捕手》
-28,Titanic (1997),Drama|Romance,《泰坦尼克号》
-29,Saving Private Ryan (1998),Action|Drama|War,《拯救大兵瑞恩》
-30,American History X (1998),Crime|Drama,《美国X档案》
-31,American Beauty (1999),Drama|Romance,《美国丽人》
-32,Fight Club (1999),Action|Crime|Drama|Thriller,《搏击俱乐部》
-33,Gladiator (2000),Action|Adventure|Drama,《角斗士》
-34,Memento (2000),Mystery|Thriller,《记忆碎片》
-35,Shrek (2001),Adventure|Animation|Children|Comedy|Fantasy|Romance,《怪物史莱克》
-36,"Monsters, Inc. (2001)",Adventure|Animation|Children|Comedy|Fantasy,《怪兽电力公司》
-37,Ocean's Eleven (2001),Crime|Thriller,《十一罗汉》
-38,Minority Report (2002),Action|Crime|Mystery|Sci-Fi|Thriller,《少数派报告》
-39,Finding Nemo (2003),Adventure|Animation|Children|Comedy,《海底总动员》
-40,Pirates of the Caribbean: The Curse of the Black Pearl (2003),Action|Adventure|Comedy|Fantasy,《加勒比海盗：黑珍珠号的诅咒》
-41,Kill Bill: Vol. 1 (2003),Action|Crime|Thriller,《杀死比尔1》
-42,Eternal Sunshine of the Spotless Mind (2004),Drama|Romance|Sci-Fi,《美丽心灵的永恒阳光》
-43,Batman Begins (2005),Action|Crime|IMAX,《蝙蝠侠：侠影之谜》
-44,WALL·E (2008),Adventure|Animation|Children|Romance|Sci-Fi,《机器人总动员》
-45,Inception (2010),Action|Crime|Drama|Mystery|Sci-Fi|Thriller|IMAX,《盗梦空间》
-46,Interstellar (2014),Sci-Fi|IMAX,《星际穿越》
+movieId,title,genres,chinese_title,link
+0,Toy Story (1995),Adventure|Animation|Children|Comedy|Fantasy,《玩具总动员》,https://www.youtube.com/embed/v-PjgYDrg70
+1,Braveheart (1995),Action|Drama|War,《勇敢的心》,https://www.youtube.com/embed/1NJO0jxBtMo
+2,Apollo 13 (1995),Adventure|Drama|IMAX,《阿波罗13号》,https://www.youtube.com/embed/KtEIMC58sZo
+3,Die Hard: With a Vengeance (1995),Action|Crime|Thriller,《虎胆龙威3》,https://www.youtube.com/embed/SYgC96UAa1I?si=dz0lXbstF6vlON1p
+4,Pulp Fiction (1994),Comedy|Crime|Drama|Thriller,《低俗小说》,https://www.youtube.com/embed/s7EdQ4FqbhY
+5,Forrest Gump (1994),Comedy|Drama|Romance|War,《阿甘正传》,https://www.youtube.com/embed/bLvqoHBptjg
+6,Jurassic Park (1993),Action|Adventure|Sci-Fi|Thriller,《侏罗纪公园》,https://www.youtube.com/embed/QWBKEmWWL38
+7,Schindler's List (1993),Drama|War,《辛德勒的名单》,https://www.youtube.com/embed/gG22XNhtnoY
+8,Blade Runner (1982),Action|Sci-Fi|Thriller,《银翼杀手》,https://www.youtube.com/embed/eogpIG53Cis
+9,Aladdin (1992),Adventure|Animation|Children|Comedy|Musical,《阿拉丁》,https://www.youtube.com/embed/eTjHiQKJUDY
+10,Terminator 2: Judgment Day (1991),Action|Sci-Fi,《终结者2：审判日》,https://www.youtube.com/embed/CRRlbK5w8AE
+11,Dances with Wolves (1990),Adventure|Drama|Western,《与狼共舞》,https://www.youtube.com/embed/q6jBTxE4GsM?si=-0potGrwsvxG9CRz
+12,Beauty and the Beast (1991),Animation|Children|Fantasy|Musical|Romance|IMAX,《美女与野兽》,https://www.youtube.com/embed/iurbZwxKFUE?si=Uz3rNO_ctdi3nM3T
+13,Fargo (1996),Comedy|Crime|Drama|Thriller,《冰血暴》,https://www.youtube.com/embed/h2tY82z3xXU
+14,Die Hard (1988),Action|Crime|Thriller,《虎胆龙威》,https://www.youtube.com/embed/2TQ-pOvI6Xo
+15,Reservoir Dogs (1992),Crime|Mystery|Thriller,《落水狗》,https://www.youtube.com/embed/vayksn4Y93A
+16,E.T. the Extra-Terrestrial (1982),Children|Drama|Sci-Fi,《E.T.外星人》,https://www.youtube.com/embed/qYAETtIIClk
+17,Monty Python and the Holy Grail (1975),Adventure|Comedy|Fantasy,《巨蟒与圣杯》,https://www.youtube.com/embed/urRkGvhXc8w
+18,One Flew Over the Cuckoo's Nest (1975),Drama,《飞越疯人院》,https://www.youtube.com/embed/OXrcDonY-B8?si=URdNcNhGlLXomY_b
+19,Star Wars: Episode V - The Empire Strikes Back (1980),Action|Adventure|Sci-Fi,《星球大战5：帝国反击战》,https://www.youtube.com/embed/JNwNXF9Y6kY
+20,Aliens (1986),Action|Adventure|Horror|Sci-Fi,《异形2》,https://www.youtube.com/embed/XKSQmYUaIyE
+21,Star Wars: Episode VI - Return of the Jedi (1983),Action|Adventure|Sci-Fi,《星球大战6：绝地归来》,https://www.youtube.com/embed/7L8p7_SLzvU
+22,Goodfellas (1990),Crime|Drama,《好家伙》,https://www.youtube.com/embed/qo5jJpHtI1Y
+23,Alien (1979),Horror|Sci-Fi,《异形》,https://www.youtube.com/embed/jQ5lPt9edzQ
+24,Groundhog Day (1993),Comedy|Fantasy|Romance,《土拨鼠之日》,https://www.youtube.com/embed/tSVeDx9fk60
+25,Back to the Future (1985),Adventure|Comedy|Sci-Fi,《回到未来》,https://www.youtube.com/embed/qvsgGtivCgs
+26,Indiana Jones and the Last Crusade (1989),Action|Adventure,《夺宝奇兵3：圣战奇兵》,https://www.youtube.com/embed/a6JB2suJYHM
+27,Good Will Hunting (1997),Drama|Romance,《心灵捕手》,https://www.youtube.com/embed/ReIJ1lbL-Q8
+28,Titanic (1997),Drama|Romance,《泰坦尼克号》,https://www.youtube.com/embed/kVrqfYjkTdQ
+29,Saving Private Ryan (1998),Action|Drama|War,《拯救大兵瑞恩》,https://www.youtube.com/embed/9CiW_DgxCnQ
+30,American History X (1998),Crime|Drama,《美国X档案》,https://www.youtube.com/embed/XfQYHqsiN5g
+31,American Beauty (1999),Drama|Romance,《美国丽人》,https://www.youtube.com/embed/Ly7rq5EsTC8
+32,Fight Club (1999),Action|Crime|Drama|Thriller,《搏击俱乐部》,https://www.youtube.com/embed/qtRKdVHc-cE
+33,Gladiator (2000),Action|Adventure|Drama,《角斗士》,https://www.youtube.com/embed/owK1qxDselE
+34,Memento (2000),Mystery|Thriller,《记忆碎片》,https://www.youtube.com/embed/0vS0E9bBSL0
+35,Shrek (2001),Adventure|Animation|Children|Comedy|Fantasy|Romance,《怪物史莱克》,https://www.youtube.com/embed/CwXOrWvPBPk
+36,"Monsters, Inc. (2001)",Adventure|Animation|Children|Comedy|Fantasy,《怪兽电力公司》,https://www.youtube.com/embed/6tCxnHCqqxg
+37,Ocean's Eleven (2001),Crime|Thriller,《十一罗汉》,https://www.youtube.com/embed/imm6OR605UI?si=yDcmGwaTz_AjpCRy
+38,Minority Report (2002),Action|Crime|Mystery|Sci-Fi|Thriller,《少数派报告》,https://www.youtube.com/embed/lG7DGMgfOb8
+39,Finding Nemo (2003),Adventure|Animation|Children|Comedy,《海底总动员》,https://www.youtube.com/embed/wZdpNglLbt8
+40,Pirates of the Caribbean: The Curse of the Black Pearl (2003),Action|Adventure|Comedy|Fantasy,《加勒比海盗：黑珍珠号的诅咒》,https://www.youtube.com/embed/naQr0uTrH_s
+41,Kill Bill: Vol. 1 (2003),Action|Crime|Thriller,《杀死比尔1》,https://www.youtube.com/embed/ot6C1ZKyiME
+42,Eternal Sunshine of the Spotless Mind (2004),Drama|Romance|Sci-Fi,《美丽心灵的永恒阳光》,https://www.youtube.com/embed/07-QBnEkgXU
+43,Batman Begins (2005),Action|Crime|IMAX,《蝙蝠侠：侠影之谜》,https://www.youtube.com/embed/neY2xVmOfUM
+44,WALL·E (2008),Adventure|Animation|Children|Romance|Sci-Fi,《机器人总动员》,https://www.youtube.com/embed/alIq_wG9FNk
+45,Inception (2010),Action|Crime|Drama|Mystery|Sci-Fi|Thriller|IMAX,《盗梦空间》,https://www.youtube.com/embed/YoHD9XEInc0
+46,Interstellar (2014),Sci-Fi|IMAX,《星际穿越》,https://www.youtube.com/embed/zSWdZVtXT7E
