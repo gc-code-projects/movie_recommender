@@ -1,7 +1,8 @@
+json==2.0.9
 numpy==1.26.4
 pandas==2.2.2
 streamlit==1.32.0
-streamlit_javascript
 plotly==5.22.0
+streamlit_javascript
 openai
-json==2.0.9
+
