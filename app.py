@@ -13,6 +13,10 @@ import time
 # from ollama import chat
 from openai import OpenAI
 
+import os
+from dotenv import load_dotenv
+
+
 def cosine_similarity_weighted(u, v, alpha=10):
     mask = (u != 0) & (v != 0)
     overlap = np.sum(mask)
@@ -38,10 +42,15 @@ def cosine_with_all(target, matrix):
         sims.append(cosine_similarity_weighted(target, user))
     return np.array(sims)
 
+# Load environment variables from .env
+load_dotenv()
+
+# Access the key
+api_key = os.getenv("LLM_API_KEY")
+
 client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
-    # api_key="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"
-    api_key="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"
+    api_key=api_key
 )
 
 model = "qwen/qwen3.6-plus:free"
