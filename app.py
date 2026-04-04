@@ -13,31 +13,6 @@ import time
 # from ollama import chat
 from openai import OpenAI
 
-def cosine_similarity_weighted(u, v, alpha=10):
-    mask = (u != 0) & (v != 0)
-    overlap = np.sum(mask)
-
-    if overlap == 0:
-        return 0
-
-    u_common = u[mask]
-    v_common = v[mask]
-
-    sim = np.dot(u_common, v_common) / (
-            np.linalg.norm(u_common) * np.linalg.norm(v_common)
-    )
-
-    # significance weighting
-    weight = overlap / (overlap + alpha)
-
-    return sim * weight
-
-def cosine_with_all(target, matrix):
-    sims = []
-    for user in matrix:
-        sims.append(cosine_similarity_weighted(target, user))
-    return np.array(sims)
-
 client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
     # api_key="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"
@@ -334,20 +309,21 @@ elif tab == '后台分析':
             rated_idx = movies[movies['chinese_title'].isin(watched_movies)]['movieId'].tolist()
             target = np.zeros(ratings_table.shape[1])
             target[rated_idx] = my_ratings
-            st.write(to_order)
-            sim_scores = cosine_with_all(target, ratings_table_filled.values)
+
+            sim_scores = helper.cosine_with_all(target, ratings_table_filled.values)
             user_id = sim_scores.argmax()
             top_k = 3
             user_ids = np.argpartition(sim_scores, -top_k)[-top_k:]
 
-            st.write(user_id, user_ids, rated_idx)
+            # st.write(user_id, user_ids, rated_idx)
 
             my_ratings = np.array(my_ratings)
             compare_table = pd.DataFrame([watched_movies,
                                           (my_ratings - my_ratings.min()) / (my_ratings.max() - my_ratings.min()) * 5,
                                           *[ratings_table.loc[user_id].values[rated_idx] for user_id in user_ids]]).T
             compare_table.columns = ['电影', '我的兴趣'] + [f'相似用户{i+1}' for i in range(top_k)]
-            # st.dataframe(compare_table)
+            st.write(sim_scores)
+            st.dataframe(compare_table)
             st.subheader("我的兴趣和最接近的用户的匹配度")
 
             for i in range(top_k):
