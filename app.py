@@ -348,7 +348,7 @@ elif tab == '后台分析':
                                           *[ratings_table.loc[user_id].values[rated_idx] for user_id in user_ids]]).T
             compare_table.columns = ['电影', '我的兴趣'] + [f'相似用户{i+1}' for i in range(top_k)]
             
-            # st.dataframe(compare_table)
+            st.dataframe(compare_table)
             st.subheader("我的兴趣和最接近的用户的匹配度")
 
             for i in range(top_k):
